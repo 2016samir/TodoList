@@ -1,0 +1,18 @@
+<section class="my-24">
+
+    <form [formGroup]="taskInput" class="w-[60%] mx-auto p-6 bg-white rounded-lg">
+        <input formControlName="title" type="text" id="base-input"
+            class="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg block mb-3 w-full placeholder:text-stone-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="write Your Task.....">
+
+        <textarea id="message" rows="3"
+            formControlName = "description"
+            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-200 rounded-lg border border-gray-300 placeholder:text-stone-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Description..."></textarea>
+
+        <div class="mt-3">
+            <button (click)="addNewTask()" type="submit" class="py-2 text-xl w-[60%] mx-auto block font-semibold bg-green-500 rounded-lg">Add Task</button>
+        </div>
+    </form>
+
+</section>

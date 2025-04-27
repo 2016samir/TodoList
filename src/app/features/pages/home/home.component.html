@@ -1,0 +1,33 @@
+<section class="my-24 ">
+
+    @if (tasks.length === 0) {
+        <div class="py-5 text-center w-[80%] mx-auto bg-red-400 text-3xl font-semibold rounded-lg">
+            <p class="">No Task Found</p>
+            </div>
+    }
+    @else {
+        <div class="w-[80%] mx-auto bg-white px-10 py-5 rounded-lg flex flex-col gap-8">
+        @for (task of tasks; track $index) {
+            <div class="flex items-center justify-between">
+        
+                <h2 type="button" [routerLink]="['/specificTask' , $index]" class="px-20 py-3 text-2xl font-semibold rounded-lg bg-yellow-50 hover:bg-yellow-200">{{task.title}}</h2>
+        
+                <div>
+                    <button (click)="completeTask($index)"
+                    [class.opacity-50]="task.isCompleted" [class.cursor-not-allowed]="task.isCompleted"
+                        [attr.aria-disabled]="task.isCompleted"
+                     class="px-5 py-2 text-xl font-semibold bg-green-500 rounded-md hover:bg-green-800">Completed</button>
+                    
+                     <button (click)="deleteTask($index)" class="px-5 py-2 text-xl font-semibold bg-red-500 rounded-md hover:bg-red-800 ms-3">Delete</button>
+                </div>
+                
+            </div>
+        }
+    </div>
+        
+    }
+    
+
+    <button (click)="addTask()" class="w-[80%] mx-auto bg-green-600 mt-5 block py-3 text-2xl font-bold rounded-md hover:bg-green-800">Add New Task</button>
+
+</section>
